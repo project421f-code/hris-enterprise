@@ -5,9 +5,7 @@ on:
     branches:
       - master
     paths:
-      - 'dokumen-prd-hris-terintegrasi-2/src/**'
-      - 'dokumen-prd-hris-terintegrasi-2/package.json'
-      - 'dokumen-prd-hris-terintegrasi-2/vite.config.ts'
+      - 'dokumen-prd-hris-terintegrasi-2/**'
       - '.github/workflows/deploy-pages.yml'
 
 permissions:
