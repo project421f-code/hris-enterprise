@@ -8,3 +8,5 @@ coverage/
 .env.*.local
 !.env.example
 supabase-cli/
+*.tar.gz
+supabase/.temp/
