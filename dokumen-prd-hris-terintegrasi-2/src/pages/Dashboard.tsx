@@ -4,7 +4,7 @@ import { supabase } from '../lib/supabaseClient';
 import {
   Users, Building2, UserCheck, Clock, DollarSign,
   TrendingUp, CalendarCheck, ArrowRight,
-  Briefcase, Activity, Target
+  Briefcase, Activity, Target, Globe
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -163,8 +163,14 @@ export const Dashboard: React.FC = () => {
             Anda login sebagai <span className="font-semibold text-gray-300 capitalize">{employeeRole || 'Employee'}</span>
           </p>
         </div>
-        <div className="px-3 py-1.5 bg-emerald-950/40 border border-emerald-800/40 rounded-lg text-xs text-emerald-300 font-medium">
-          Sistem Aktif
+        <div className="flex items-center gap-2">
+          <div className="px-3 py-1.5 bg-blue-950/40 border border-blue-800/40 rounded-lg text-xs text-blue-300 font-medium flex items-center gap-1.5">
+            <Globe className="w-3 h-3" />
+            Live
+          </div>
+          <div className="px-3 py-1.5 bg-emerald-950/40 border border-emerald-800/40 rounded-lg text-xs text-emerald-300 font-medium">
+            Sistem Aktif
+          </div>
         </div>
       </div>
 
@@ -251,7 +257,13 @@ export const Dashboard: React.FC = () => {
           <div className="space-y-2 text-xs">
             <div className="flex items-center justify-between py-2 border-b border-[#1a1a1a]">
               <span className="text-gray-400">Versi Aplikasi</span>
-              <span className="text-white font-mono font-bold">v2.4.0-RELEASE</span>
+              <span className="text-white font-mono font-bold">v1.0.0-LIVE</span>
+            </div>
+            <div className="flex items-center justify-between py-2 border-b border-[#1a1a1a]">
+              <span className="text-gray-400">Deployment</span>
+              <span className="text-blue-300 font-mono font-bold flex items-center gap-1">
+                <Globe className="w-3 h-3" /> GitHub Pages
+              </span>
             </div>
             <div className="flex items-center justify-between py-2 border-b border-[#1a1a1a]">
               <span className="text-gray-400">Framework</span>
