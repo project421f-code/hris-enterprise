@@ -1,0 +1,6 @@
+{
+  "name": "Dokumen PRD HRIS Terintegrasi (Mekari Style)",
+  "description": "Dokumen PRD (Product Requirement Document) sistem HRIS terintegrasi dengan modul Absensi, Payroll, Cuti, & Evaluasi Kinerja.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
