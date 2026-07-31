@@ -40,6 +40,21 @@ jobs:
       - name: TypeScript Check
         run: npx tsc --noEmit
 
+      - name: Verify Supabase secrets
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$VITE_SUPABASE_URL" ]; then
+            echo "::error::Missing secret VITE_SUPABASE_URL — set via: gh secret set VITE_SUPABASE_URL --repo ${{ github.repository }}"
+            exit 1
+          fi
+          if [ -z "$VITE_SUPABASE_ANON_KEY" ]; then
+            echo "::error::Missing secret VITE_SUPABASE_ANON_KEY — set via: gh secret set VITE_SUPABASE_ANON_KEY --repo ${{ github.repository }}"
+            exit 1
+          fi
+          echo "Supabase secrets verified"
+
       - name: Build Vite App
         env:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
