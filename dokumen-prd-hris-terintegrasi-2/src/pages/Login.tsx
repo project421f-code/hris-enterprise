@@ -213,13 +213,21 @@ export const Login: React.FC = () => {
             </p>
           </form>
 
-          <div className="pt-4 border-t border-[#1a1a1a] text-center">
+          <div className="pt-4 border-t border-[#1a1a1a] flex flex-col items-center gap-2">
             <Link
               to="/prd"
               className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
             >
               📖 Lihat Dokumentasi PRD
             </Link>
+            <a
+              href="https://github.com/project421f-code/hris-enterprise/blob/master/PANDUAN_LOGIN.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs text-gray-500 hover:text-blue-300 transition-colors"
+            >
+              🔐 Panduan Login & Verifikasi Email
+            </a>
           </div>
         </div>
       </div>
