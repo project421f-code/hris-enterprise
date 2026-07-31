@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navigate, Link } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Sparkles, Eye, EyeOff, Loader2, AlertCircle, Building2, Users, DollarSign, ShieldCheck } from 'lucide-react';
 
@@ -213,13 +213,7 @@ export const Login: React.FC = () => {
             </p>
           </form>
 
-          <div className="pt-4 border-t border-[#1a1a1a] flex flex-col items-center gap-2">
-            <Link
-              to="/prd"
-              className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
-            >
-              📖 Lihat Dokumentasi PRD
-            </Link>
+          <div className="pt-4 border-t border-[#1a1a1a] text-center">
             <a
               href="https://github.com/project421f-code/hris-enterprise/blob/master/PANDUAN_LOGIN.md"
               target="_blank"

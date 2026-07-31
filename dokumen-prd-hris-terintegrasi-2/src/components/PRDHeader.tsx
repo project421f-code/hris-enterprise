@@ -116,7 +116,7 @@ export const PRDHeader: React.FC<PRDHeaderProps> = ({
                 <Check className="w-3 h-3" /> v2.4 Approved
               </span>
             </div>
-            <p className="text-xs text-gray-500 mt-0.5">Benchmark Mekari Talenta • Absensi, Payroll PPh 21 TER, Cuti, & Performance Review</p>
+            <p className="text-xs text-gray-500 mt-0.5">Enterprise HRIS • Absensi, Payroll PPh 21 TER, Cuti, & Performance Review</p>
           </div>
         </div>
 

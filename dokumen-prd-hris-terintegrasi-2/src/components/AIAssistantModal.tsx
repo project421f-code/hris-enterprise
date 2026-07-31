@@ -35,7 +35,7 @@ export const AIAssistantModal: React.FC<AIAssistantModalProps> = ({
         body: JSON.stringify({
           prompt,
           currentModule: currentSectionTitle,
-          context: 'PRD Sistem HRIS Terintegrasi (Mekari Talenta Benchmark)'
+          context: 'PRD Sistem HRIS Terintegrasi'
         })
       });
 

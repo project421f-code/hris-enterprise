@@ -77,7 +77,7 @@ export const PRD_SECTIONS: PRDSection[] = [
       {
         id: 'overview-vision',
         title: '1.1 Visi & Latar Belakang Produk',
-        content: `Aplikasi **Enterprise HRIS Terintegrasi** dirancang untuk mentransformasi operasional Sumber Daya Manusia (SDM) dari proses manual terpisah menjadi platform SaaS berbasis cloud terpadu. Terinspirasi oleh standar industri seperti Mekari Talenta, platform ini menghubungkan **Absensi (Time & Attendance)**, **Management Cuti & Izin**, **Payroll Engine (Penggajian)**, dan **Evaluasi Kinerja (Performance Management)** dalam satu ekosistem data yang sinkron secara real-time.`,
+        content: `Aplikasi **Enterprise HRIS Terintegrasi** dirancang untuk mentransformasi operasional Sumber Daya Manusia (SDM) dari proses manual terpisah menjadi platform SaaS berbasis cloud terpadu. Terinspirasi oleh standar industri HRIS enterprise, platform ini menghubungkan **Absensi (Time & Attendance)**, **Management Cuti & Izin**, **Payroll Engine (Penggajian)**, dan **Evaluasi Kinerja (Performance Management)** dalam satu ekosistem data yang sinkron secara real-time.`,
         callout: {
           type: 'info',
           title: 'Target Dampak Bisnis',

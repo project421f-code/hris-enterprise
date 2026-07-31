@@ -15,7 +15,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, prdSe
 
   const generateFullMarkdown = () => {
     let md = `# DOKUMEN PRODUCT REQUIREMENT DOCUMENT (PRD)\n`;
-    md += `## APLIKASI ENTERPRISE HRIS TERINTEGRASI (BENCHMARK MEKARI TALENTA)\n`;
+    md += `## APLIKASI ENTERPRISE HRIS TERINTEGRASI\n`;
     md += `**Versi:** 2.4.0-RELEASE | **Tanggal:** Juli 2026 | **Status:** Approved & Production-Ready\n\n`;
     md += `---\n\n`;
 
@@ -52,7 +52,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({ isOpen, onClose, prdSe
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.setAttribute('download', 'PRD_HRIS_Terintegrasi_Mekari_Style.md');
+    link.setAttribute('download', 'PRD_HRIS_Terintegrasi.md');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

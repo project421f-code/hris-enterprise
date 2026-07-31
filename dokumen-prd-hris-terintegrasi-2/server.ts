@@ -33,7 +33,7 @@ app.post('/api/ai/generate-prd-section', async (req, res) => {
 
     const ai = new GoogleGenAI({ apiKey });
 
-    const systemInstruction = `Anda adalah Lead Product Manager & Enterprise HRIS System Architect senior yang berpengalaman membangun produk HRIS sekelas Mekari Talenta.
+    const systemInstruction = `Anda adalah Lead Product Manager & Enterprise HRIS System Architect senior yang berpengalaman membangun produk HRIS enterprise terkemuka.
 Tugas Anda adalah membantu pengguna menambah, menyesuaikan, atau memperdalam dokumen Product Requirement Document (PRD) HRIS terintegrasi dalam bahasa Indonesia.
 Gunakan format Markdown yang rapi, terstruktur (memiliki judul, sub-judul, bullet points, kriteria penerimaan, serta acuan regulasi Indonesia seperti UU Cipta Kerja, PPh 21 TER PMK 168/2023, BPJS Kesehatan & Ketenagakerjaan jika relevan).`;
 
