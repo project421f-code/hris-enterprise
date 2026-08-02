@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { LoginGuideModal } from '../components/LoginGuideModal';
 import { Sparkles, Eye, EyeOff, Loader2, AlertCircle, Building2, Users, DollarSign, ShieldCheck } from 'lucide-react';
 
 export const Login: React.FC = () => {
@@ -13,6 +14,7 @@ export const Login: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [showGuide, setShowGuide] = useState(false);
 
   if (authLoading) {
     return (
@@ -214,17 +216,18 @@ export const Login: React.FC = () => {
           </form>
 
           <div className="pt-4 border-t border-[#1a1a1a] text-center">
-            <a
-              href="https://github.com/project421f-code/hris-enterprise/blob/master/PANDUAN_LOGIN.md"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs text-gray-500 hover:text-blue-300 transition-colors"
+            <button
+              type="button"
+              onClick={() => setShowGuide(true)}
+              className="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-blue-300 transition-colors"
             >
               🔐 Panduan Login & Verifikasi Email
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      <LoginGuideModal open={showGuide} onClose={() => setShowGuide(false)} />
     </div>
   );
 };
