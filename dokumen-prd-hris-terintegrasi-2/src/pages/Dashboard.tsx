@@ -154,16 +154,16 @@ export const Dashboard: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Welcome Header */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-xl font-bold text-white">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="min-w-0">
+          <h1 className="text-xl font-bold text-white truncate">
             Selamat Datang, {user?.email?.split('@')[0] || 'User'}
           </h1>
           <p className="text-xs text-gray-500 mt-1">
             Anda login sebagai <span className="font-semibold text-gray-300 capitalize">{employeeRole || 'Employee'}</span>
           </p>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           <div className="px-3 py-1.5 bg-blue-950/40 border border-blue-800/40 rounded-lg text-xs text-blue-300 font-medium flex items-center gap-1.5">
             <Globe className="w-3 h-3" />
             Live

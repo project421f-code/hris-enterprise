@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard, Users, Building2, CalendarCheck, DollarSign,
   Award, TrendingUp, LogOut, ChevronLeft,
-  Sparkles, Menu
+  Sparkles, Menu, X
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 
 interface SidebarProps {
   collapsed: boolean;
   onToggle: () => void;
+  mobileOpen: boolean;
+  onMobileClose: () => void;
 }
 
 const navItems = [
@@ -28,8 +30,17 @@ const navModules = [
 
 const moduleItems: { to: string; icon: React.ComponentType<any>; label: string; disabled: boolean }[] = [];
 
-export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle, mobileOpen, onMobileClose }) => {
   const { user, employeeRole, signOut } = useAuth();
+
+  // Lock body scroll while the mobile drawer is open
+  useEffect(() => {
+    if (!mobileOpen) return;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all duration-200 ${
@@ -44,6 +55,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
     <aside
       className={`fixed left-0 top-0 h-full bg-[#080808] border-r border-[#1a1a1a] z-50 flex flex-col transition-all duration-300 ${
         collapsed ? 'w-[68px]' : 'w-60'
+      } ${mobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} ${
+        mobileOpen ? 'shadow-2xl shadow-black/60 lg:shadow-none' : ''
       }`}
     >
       <div className={`p-4 border-b border-[#1a1a1a] flex items-center ${collapsed ? 'justify-center' : 'justify-between'}`}>
@@ -63,21 +76,32 @@ export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
             <Sparkles className="w-4 h-4 text-white" />
           </div>
         )}
-        <button onClick={onToggle} className="p-1.5 rounded-lg hover:bg-[#141414] text-gray-500 hover:text-gray-300 transition-all">
+        <button
+          onClick={onMobileClose}
+          className="lg:hidden p-1.5 rounded-lg hover:bg-[#141414] text-gray-500 hover:text-gray-300 transition-all"
+          aria-label="Tutup menu navigasi"
+        >
+          <X className="w-4 h-4" />
+        </button>
+        <button
+          onClick={onToggle}
+          className="hidden lg:flex p-1.5 rounded-lg hover:bg-[#141414] text-gray-500 hover:text-gray-300 transition-all"
+          aria-label={collapsed ? 'Perluas menu' : 'Ciutkan menu'}
+        >
           {collapsed ? <Menu className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
         </button>
       </div>
 
       <div className="flex-1 overflow-y-auto px-3 py-4 space-y-1">
         {navItems.map((item) => (
-          <NavLink key={item.to} to={item.to} end={item.to === '/dashboard'} className={linkClass}>
+          <NavLink key={item.to} to={item.to} end={item.to === '/dashboard'} className={linkClass} onClick={onMobileClose}>
             <item.icon className="w-4.5 h-4.5 shrink-0" />
             {!collapsed && <span>{item.label}</span>}
           </NavLink>
         ))}
 
         {navModules.map((item) => (
-          <NavLink key={item.to} to={item.to} className={linkClass}>
+          <NavLink key={item.to} to={item.to} className={linkClass} onClick={onMobileClose}>
             <item.icon className="w-4.5 h-4.5 shrink-0" />
             {!collapsed && <span>{item.label}</span>}
           </NavLink>
